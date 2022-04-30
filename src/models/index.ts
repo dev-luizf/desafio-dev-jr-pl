@@ -1,7 +1,7 @@
 import Graph from './Graph';
 import MongoModel from './Model'; 
 
-export default {
+export {
     MongoModel,
     Graph,
 }
