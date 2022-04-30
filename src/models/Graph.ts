@@ -7,8 +7,8 @@ interface GraphDocument extends IGraph, Document {}
 const edgeSchema = new Schema({
   source: { type: String, required: true },
   target: { type: String, required: true },
-  distance: { type: Number, required: true }
-})
+  distance: { type: Number, required: true },
+});
 
 export const graphSchema = new Schema<GraphDocument>({
   data: {
