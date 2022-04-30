@@ -51,15 +51,8 @@
             "skipComments": true
         }
         ],
-        "max-len": [
-        "error",
-        {
-            "code": 100
-        },
-        {
-            "ignoreComments": true
-        }
-        ],
+        "arrow-body-style": "off",
+        "max-len": ["error", { "code": 100, "ignoreComments": true }],
         "complexity": ["error", 5],
         "import/no-extraneous-dependencies": ["off"],
         "sonarjs/cognitive-complexity": ["error", 5],
