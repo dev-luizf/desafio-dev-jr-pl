@@ -8,14 +8,14 @@ const edgeSchema = new Schema({
   source: { type: String, required: true },
   target: { type: String, required: true },
   distance: { type: Number, required: true },
-});
+}, { _id: false });
 
 export const graphSchema = new Schema<GraphDocument>({
   data: {
     type: [edgeSchema],
     required: true,
   },
-});
+}, { versionKey: false });
 
 class GraphModel extends MongoModel<IGraph> {
   constructor(model = createModel('Graphs', graphSchema)) {
