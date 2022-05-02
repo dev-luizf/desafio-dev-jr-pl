@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ./build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compose:up": "docker-compose up --build -d",
+    "compose:down": "docker-compose down --rmi local --volumes --remove-orphans"
   },
   "repository": {
     "type": "git",
