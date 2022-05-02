@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  api:
+    build: ./
+    container_name: graph-api
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"]
+      timeout: 10s
+      retries: 5
+    ports:
+      - 3001:3001
+    environment:
+      - MONGO_URI=mongodb://db:27017/Graph
+  db:
+    image: mongo:5.0.7
+    container_name: db
+    ports:
+      - 3002:27017
+    restart: 'always'
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo --quiet | grep 1
+      timeout: 10s
+      retries: 5
