@@ -12,7 +12,6 @@ class GraphRouter extends BaseRouter<IGraph> {
   ) {
     super(controller, createValidator, updateValidator);
   }
-
 }
 
 export default GraphRouter;
